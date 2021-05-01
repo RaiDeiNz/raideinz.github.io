@@ -15,9 +15,9 @@
          
          if ( is_dir( "$dizin_adi/$bilgi" ) )
          
-         print " [Dizin] " ;
+         echo " [Dizin] " ;
          
-         print ("<a href="$dizin_adi/$bilgi">$bilgi</A><br>n");
+         echo ("<a href="$dizin_adi/$bilgi">$bilgi</A><br>n");
          
          }
          
