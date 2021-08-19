@@ -5,8 +5,16 @@
 My Sweet Homepage
 </title>
 <link rel="shortcut icon" type="image/logo.ico" href="/q/favicon.ico" size="any">
+   <sytle>
+      body {
+      margin: 0;
+      height: 100vh;
+      width: 100vw;
+   </sytle>
+}
 </head>
 <body>
+   <canvas id='canv', width=1920, height=1080>
 <h1>Hello World<a href="https://raideinz.github.io/q/sites.html" target="_blank">!</a></h1>
 <!--All of this site is created with copy on https://www.whoishostingthis.com/resources/assembly-language/ \
 The reason for this is not to offer pirated content, but to secure it for myself. Many of the educational resources I saved to the browser to look at later were not there when I went back. For this reason, I keep it in my own github repo in order not to fall into this problem.-->
@@ -222,5 +230,36 @@ The reason for this is not to offer pirated content, but to secure it for myself
    <hr>   
 </div>
 <!--Eğer sayfanın kaynak kodunu CTF için incelediysen, bana DM'de şu sayıyı yaz. "715 715 0" -->
+      <script>
+         const canvas = document.getElementById('canv');
+const ctx = canvas.getContext('2d');
+
+const w = canvas.width = document.body.offsetWidth;
+const h = canvas.height = document.body.offsetHeight;
+const cols = Math.floor(w / 20) + 1;
+const ypos = Array(cols).fill(0);
+
+ctx.fillStyle = '#000';
+ctx.fillRect(0, 0, w, h);
+
+function matrix () {
+  ctx.fillStyle = '#0001';
+  ctx.fillRect(0, 0, w, h);
+  
+  ctx.fillStyle = '#0f0';
+  ctx.font = '15pt monospace';
+  
+  ypos.forEach((y, ind) => {
+    const text = String.fromCharCode(Math.random() * 128);
+    const x = ind * 20;
+    ctx.fillText(text, x, y);
+    if (y > 100 + Math.random() * 10000) ypos[ind] = 0;
+    else ypos[ind] = y + 20;
+  });
+}
+
+setInterval(matrix, 50);
+         </script>
+      </canvas>
 </body>
 </html>
